@@ -30,10 +30,10 @@ with open(inputPath, 'rb') as csvfile:
 	headers = []
 	headersDict = dict()
 	for i, row in enumerate(reader):
-		print i
+		
 		if (i == 0):
 			header = row
-			print row
+			
 			headersDict = {value:idx for idx, value in enumerate(header)}
 			row = replaceWord(row, {
 			'date': 'Date',
@@ -70,8 +70,7 @@ with open(inputPath, 'rb') as csvfile:
 			result.append(credit)
 			result.append(addendum)
 
-			print "RESULT:"
 			row=result
-		print row
-
+		
+		print str(row).strip('[]')
 		writer.writerow(row)
